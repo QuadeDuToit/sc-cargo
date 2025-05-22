@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Dynamic Mission Planner</title>
+	<link rel="stylesheet" href="main.css">
+	<style>
+		table,
+		th,
+		td {
+			border: 1px solid #ccc;
+			border-collapse: collapse;
+			padding: 5px;
+		}
+
+		input {
+			width: 100%;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Mission Route Planner</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>From</th>
+				<th>To</th>
+				<th>Item</th>
+				<th>Amount</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody id="missionTableBody"></tbody>
+	</table>
+
+	<ul id="routeOutput"></ul>
+	<div id="output"></div>
+ 	<script src="planner.js"></script>
+</body>
+
+</html>

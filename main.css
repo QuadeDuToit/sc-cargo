@@ -1,0 +1,54 @@
+*,
+::before,
+::after {
+    font-family: 'Roboto';
+    font-style: normal;
+    text-decoration: inherit;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ 
+input,
+textarea,
+select,
+input:hover,
+textarea:hover,
+select:hover,
+input:focus,
+textarea:focus,
+select:focus,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    filter: none;
+}
+
+strong {
+    font-weight: 900;
+}
+
+u {
+    text-decoration: underline;
+}
+
+em {
+    font-style: italic;
+}
+
+code {
+    background: rgb(80, 80, 80);
+    color: white;
+    padding: 0 3px;
+    margin: 0 3px;
+    border-radius: 3px;
+}
