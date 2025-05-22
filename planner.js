@@ -75,36 +75,73 @@ class RouteApp {
 
 	renderRoute() {
 		const route = this.buildRoute();
-		const steps = this.generateStopInstructions(route);
-		this.routeOutput.innerHTML = "";
+		const output = [];
+		const pendingDropoffs = [];
+		const completedPickups = new Set();
 
-		for (const stop of route) {
-			const li = document.createElement("li");
-			const label = document.createElement("label");
-			const checkbox = document.createElement("input");
-			checkbox.type = "checkbox";
-			label.appendChild(checkbox);
-			label.append(` ${stop}`);
-			li.appendChild(label);
+		for (let location of route) {
+			output.push(location);
+			const rowsHere = this.missions.filter(row => row.from === location || row.to === location);
 
-			const details = steps[stop];
-			if (details) {
-				const ul = document.createElement("ul");
-				for (const p of details.pickups) {
-					const pLi = document.createElement("li");
-					pLi.textContent = p;
-					ul.appendChild(pLi);
+			// Handle pickups
+			for (let row of rowsHere) {
+				if (row.from === location) {
+					output.push(`Pick up ${row.amount} ${row.item} for ${row.to}`);
+					completedPickups.add(`${row.from}->${row.to}:${row.item}:${row.amount}`);
 				}
-				for (const d of details.dropoffs) {
-					const dLi = document.createElement("li");
-					dLi.textContent = d;
-					ul.appendChild(dLi);
-				}
-				li.appendChild(ul);
 			}
 
-			this.routeOutput.appendChild(li);
+			// Handle drop-offs
+			for (let row of rowsHere) {
+				if (
+					row.to === location &&
+					completedPickups.has(`${row.from}->${row.to}:${row.item}:${row.amount}`)
+				) {
+					output.push(`Drop off ${row.amount} ${row.item} from ${row.from}`);
+				} else if (row.to === location) {
+					// Defer this drop-off
+					pendingDropoffs.push(row);
+				}
+			}
 		}
+
+		console.log('route', route);
+		// Now do a second pass for any undelivered cargo
+		const remainingStops = [];
+		const seenStops = new Set(route);
+
+		for (let row of pendingDropoffs) {
+			const tag = `${row.from}->${row.to}:${row.item}:${row.amount}`;
+			console.log('tag', tag);
+			console.log('completedPickups', completedPickups);
+			console.log('row.to', row.to);
+			console.log('seenStops', seenStops);
+			
+// potentail issue here
+
+			if (
+				completedPickups.has(tag) &&
+				(!seenStops.has(row.to) || route.includes(row.to))
+			) {
+				remainingStops.push(row.to);
+				route.push(row.to); // Extend route
+				console.log('row.to', row.to);
+			}
+		}
+
+		for (let location of remainingStops) {
+			output.push(location);
+			for (let row of pendingDropoffs) {
+				if (
+					row.to === location &&
+					completedPickups.has(`${row.from}->${row.to}:${row.item}:${row.amount}`)
+				) {
+					output.push(`Drop off ${row.amount} ${row.item} from ${row.from}`);
+				}
+			}
+		}
+
+		this.routeOutput.innerHTML = output.map(item => `<li>${item}</li>`).join('');
 	}
 
 	buildRoute() {
