@@ -49,7 +49,22 @@ class RouteApp {
 			const deleteCell = document.createElement("td");
 			if (this.missions.length > 1) {
 				const deleteBtn = document.createElement("button");
-				deleteBtn.textContent = "Delete";
+				deleteBtn.innerHTML = `  <span class="span-mother">
+    <span>D</span>
+    <span>e</span>
+    <span>l</span>
+    <span>e</span>
+    <span>t</span>
+    <span>e</span>
+  </span>
+  <span class="span-mother2">
+    <span>D</span>
+    <span>e</span>
+    <span>l</span>
+    <span>e</span>
+    <span>t</span>
+    <span>e</span>
+  </span>`;
 				deleteBtn.onclick = () => {
 					this.missions.splice(index, 1);
 					this.renderTable();
@@ -104,20 +119,15 @@ class RouteApp {
 				}
 			}
 		}
-
-		console.log('route', route);
+ 
 		// Now do a second pass for any undelivered cargo
 		const remainingStops = [];
 		const seenStops = new Set(route);
 
 		for (let row of pendingDropoffs) {
 			const tag = `${row.from}->${row.to}:${row.item}:${row.amount}`;
-			console.log('tag', tag);
-			console.log('completedPickups', completedPickups);
-			console.log('row.to', row.to);
-			console.log('seenStops', seenStops);
-			
-// potentail issue here
+ 
+			// potentail issue here
 
 			if (
 				completedPickups.has(tag) &&
@@ -209,6 +219,12 @@ class RouteApp {
 		}
 
 		return instructions;
+	}
+
+	clearAll() {
+		this.missions = [{ from: "", to: "", item: "", amount: "" }];
+		this.renderTable();
+		this.renderRoute();
 	}
 }
 

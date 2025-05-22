@@ -22,7 +22,10 @@
 </head>
 
 <body>
+ 
 	<h1>Mission Route Planner</h1>
+
+	<input type="button" value="Clear all" onclick="app.clearAll()" />
 
 	<table>
 		<thead>
@@ -36,9 +39,12 @@
 		</thead>
 		<tbody id="missionTableBody"></tbody>
 	</table>
-
+	<div class="body">
+	<section>
 	<ul id="routeOutput"></ul>
 	<div id="output"></div>
+	</section>
+	</div>
  	<script src="planner.js"></script>
 </body>
 
