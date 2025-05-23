@@ -1,16 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap");
+
+
 *,
 ::before,
 ::after {
-    font-family: 'Roboto';
-    font-style: normal;
-    text-decoration: inherit;
-    font-weight: 400;
-    /* padding: 0;
+	color: white;
+	font-style: normal;
+	text-decoration: inherit;
+	font-weight: 400;
+	/* padding: 0;
     margin: 0; */
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
- 
+
 /* input,
 textarea,
 select,
@@ -34,127 +43,365 @@ select:-webkit-autofill:focus {;
 } */
 
 strong {
-    font-weight: 900;
+	font-weight: 900;
 }
 
 u {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 em {
-    font-style: italic;
+	font-style: italic;
 }
 
 code {
-    background: rgb(80, 80, 80);
-    color: white;
-    padding: 0 3px;
-    margin: 0 3px;
-    border-radius: 3px;
+	background: rgb(80, 80, 80);
+	color: white;
+	padding: 0 3px;
+	margin: 0 3px;
+	border-radius: 3px;
 }
 
-input,
-input:focus,
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus { 
+input[type=text],
+input[type=text]:focus,
+input[type=text]:-webkit-autofill,
+input[type=text]:-webkit-autofill:hover,
+input[type=text]:-webkit-autofill:focus {
 	border: unset;
-	 -webkit-box-shadow: 0 0 0px 1000px white inset;
-    filter: none;
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+	filter: none;
 	outline: none;
 }
 
 button {
-  font-weight: bold;
-  color: black;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 75px;
-  height: 24px;
-  border: none;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid 1px rgb(185, 185, 185);
+	font-weight: bold;
+	color: black;
+	border-radius: 10px;
+	cursor: pointer;
+	width: 75px;
+	height: 24px;
+	border: none;
+	background-color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: solid 1px rgb(185, 185, 185);
 }
-button:hover{
+
+button:hover {
 	color: white;
-	border-color:  rgb(177, 62, 62);
+	border-color: rgb(177, 62, 62);
 	background-color: rgb(177, 62, 62);
 }
 
 button .span-mother {
-  display: flex;
-  overflow: hidden;
+	display: flex;
+	overflow: hidden;
 }
 
 button:hover .span-mother {
-  position: absolute;
+	position: absolute;
 }
 
 button:hover .span-mother span {
-  transform: translateY(1.2em);
+	transform: translateY(1.2em);
 }
 
 button .span-mother span:nth-child(1) {
-  transition: 0.2s;
+	transition: 0.2s;
 }
 
 button .span-mother span:nth-child(2) {
-  transition: 0.3s;
+	transition: 0.3s;
 }
 
 button .span-mother span:nth-child(3) {
-  transition: 0.4s;
+	transition: 0.4s;
 }
 
 button .span-mother span:nth-child(4) {
-  transition: 0.5s;
+	transition: 0.5s;
 }
 
 button .span-mother span:nth-child(5) {
-  transition: 0.6s;
+	transition: 0.6s;
 }
 
 button .span-mother span:nth-child(6) {
-  transition: 0.7s;
+	transition: 0.7s;
 }
 
 button .span-mother2 {
-  display: flex;
-  position: absolute;
-  overflow: hidden;
+	display: flex;
+	position: absolute;
+	overflow: hidden;
 }
 
 button .span-mother2 span {
-  transform: translateY(-1.2em);
+	transform: translateY(-1.2em);
 }
 
 button:hover .span-mother2 span {
-  transform: translateY(0);
+	transform: translateY(0);
 }
 
 button .span-mother2 span {
-  transition: 0.2s;
+	transition: 0.2s;
 }
 
 button .span-mother2 span:nth-child(2) {
-  transition: 0.3s;
+	transition: 0.3s;
 }
 
 button .span-mother2 span:nth-child(3) {
-  transition: 0.4s;
+	transition: 0.4s;
 }
 
 button .span-mother2 span:nth-child(4) {
-  transition: 0.5s;
+	transition: 0.5s;
 }
 
 button .span-mother2 span:nth-child(5) {
-  transition: 0.6s;
+	transition: 0.6s;
 }
 
 button .span-mother2 span:nth-child(6) {
-  transition: 0.7s;
+	transition: 0.7s;
 }
+
+
+
+.checkbox-wrapper-60,
+.checkbox-wrapper-61,
+.checkbox-wrapper-62 {
+	display: flex;
+	height: 50px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.checkbox-wrapper-60:hover,
+.checkbox-wrapper-61:hover,
+.checkbox-wrapper-62:hover {
+	color: red;
+}
+
+
+.checkbox-wrapper-60 .label,
+.checkbox-wrapper-61 .label,
+.checkbox-wrapper-62 .label {
+	cursor: pointer;
+
+}
+
+.checkbox-wrapper-60 input[type="checkbox"] {
+	visibility: hidden;
+	display: none;
+}
+
+.checkbox-wrapper-60 *,
+.checkbox-wrapper-60 ::after,
+.checkbox-wrapper-60 ::before {
+	box-sizing: border-box;
+}
+
+.checkbox-wrapper-60 {
+	position: relative;
+	overflow: hidden;
+	padding-left: 12px;
+}
+
+.checkbox-wrapper-60 .check {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	opacity: 0;
+}
+
+.checkbox-wrapper-60 .label svg {
+	vertical-align: middle;
+}
+
+.checkbox-wrapper-60 .path1 {
+	stroke-dasharray: 400;
+	stroke-dashoffset: 400;
+	transition: .5s all;
+}
+
+.checkbox-wrapper-60 .check:checked+label svg g path {
+	stroke-dashoffset: 0;
+}
+
+
+
+.checkbox-wrapper-61 input[type="checkbox"] {
+	visibility: hidden;
+	display: none;
+}
+
+.checkbox-wrapper-61 *,
+.checkbox-wrapper-61 ::after,
+.checkbox-wrapper-61 ::before {
+	box-sizing: border-box;
+}
+
+.checkbox-wrapper-61 {
+	position: relative;
+	overflow: hidden;
+	padding-left: 1px;
+}
+
+.checkbox-wrapper-61 .check {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	opacity: 0;
+}
+
+.checkbox-wrapper-61 .label svg {
+	vertical-align: middle;
+}
+
+.checkbox-wrapper-61 .path1 {
+	stroke-dasharray: 400;
+	stroke-dashoffset: 400;
+	transition: .5s stroke-dashoffset;
+	opacity: 0;
+}
+
+.checkbox-wrapper-61 .check:checked+label svg g path {
+	stroke-dashoffset: 0;
+	opacity: 1;
+}
+
+
+
+
+
+
+.checkbox-wrapper-62 input[type="checkbox"] {
+	visibility: hidden;
+	display: none;
+}
+
+.checkbox-wrapper-62 *,
+.checkbox-wrapper-62 ::after,
+.checkbox-wrapper-62 ::before {
+	box-sizing: border-box;
+}
+
+.checkbox-wrapper-62 {
+	position: relative;
+	overflow: hidden;
+}
+
+.checkbox-wrapper-62 .check {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	opacity: 0;
+}
+
+.checkbox-wrapper-62 .label svg {
+	vertical-align: middle;
+}
+
+.checkbox-wrapper-62 .path1 {
+	stroke-dasharray: 400;
+	stroke-dashoffset: 400;
+	transition: .5s all;
+}
+
+.checkbox-wrapper-62 .check:checked+label svg g path {
+	stroke-dashoffset: 0;
+}
+
+
+
+
+
+html {
+	background: black;
+	max-width: 60em;
+	margin: auto;
+}
+
+.header {
+	background: #212121;
+}
+
+h1,
+h4 {
+	color: #ffff00c9;
+	font-family: "Orbitron", sans-serif;
+}
+
+.title {
+	padding-top: 0.7em;
+	padding-left: 0.7em;
+}
+
+.header-info {
+	max-width: 95%;
+	margin-left: 1.5em !important;
+}
+
+ 
+table {
+	font-family: "Jura", sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.table-header {
+	font-weight: bold;
+}
+
+td,
+th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+	color: white;
+}
+
+tr:nth-child(even) {
+	background-color: #17171796;
+	color: white;
+}
+
+.auth-bar-code {
+	font-family: "Libre Barcode 39 Text", cursive;
+	font-size: 25px;
+}
+
+.commands {
+	float: right;
+}
+
+.btn {
+	transform: translateY(25px);
+	z-index: 1;
+	overflow: hidden;
+	background: transparent;
+	color: white;
+	border: 2px solid white;
+	position: relative;
+	padding: 8px 20px;
+	border-radius: 0px;
+	cursor: pointer;
+	font-size: 1em;
+	transition: 0.2s ease;
+	font-weight: bold;
+	margin: 5px 0px;
+	font-family: "Jura", sans-serif;
+}
+
+ 
+
+.btn:hover {
+	color: black;
+	background: white;
+	transition: 0.2s ease;
+}
+ 

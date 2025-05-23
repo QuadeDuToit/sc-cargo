@@ -1,10 +1,20 @@
+// import utils from "./utils";
+function uuidv4() {
+	return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+		(+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
+	);
+}
+
+function getRandomInt(max) {
+	return Math.floor(Math.random() * max);
+}
+
 class RouteApp {
 	constructor() {
-		this.missions = [{ from: "", to: "", item: "", amount: "" }];
+		this.missions = [{ from: "new york", to: "station", item: "ash", amount: "10" }, { from: "new york", to: "station", item: "ash", amount: "10" }, { from: "new york", to: "station", item: "ash", amount: "10" }, { from: "new york", to: "station", item: "ash", amount: "10" }, { from: "new york", to: "station", item: "ash", amount: "10" }, { from: "new york", to: "station", item: "ash", amount: "10" }];
 		this.tableBody = document.getElementById("missionTableBody");
 		this.routeOutput = document.getElementById("routeOutput");
-		this.renderTable();
-		this.renderRoute();
+		this.clearAll();
 	}
 
 	ensureExtraRow() {
@@ -119,14 +129,14 @@ class RouteApp {
 				}
 			}
 		}
- 
-		// Now do a second pass for any undelivered cargo
+
+		// second pass for any undelivered cargo
 		const remainingStops = [];
 		const seenStops = new Set(route);
 
 		for (let row of pendingDropoffs) {
 			const tag = `${row.from}->${row.to}:${row.item}:${row.amount}`;
- 
+
 			// potentail issue here
 
 			if (
@@ -151,7 +161,32 @@ class RouteApp {
 			}
 		}
 
-		this.routeOutput.innerHTML = output.map(item => `<li>${item}</li>`).join('');
+
+
+		let html = '';
+		let currentLocation = null;
+
+		for (const [index, item] of output.entries()) {
+			if (!item.startsWith('Pick up') && !item.startsWith('Drop off')) {
+
+				// location
+				if (currentLocation !== null) {
+					html += '</ul></li>';
+				}
+				currentLocation = item;
+				html += `<li><strong>${item}</strong>`;
+			} else {
+				// action and cargo
+				// html += `<li><label class="container">${item}<input type="checkbox" /><span class="checkmark"></span></label></li>`;
+				html += `${this.buildCheckbox(item)}`;
+			}
+
+		}
+		if (currentLocation !== null) {
+			html += '</li>';
+		}
+
+		this.routeOutput.innerHTML = html;
 	}
 
 	buildRoute() {
@@ -226,6 +261,35 @@ class RouteApp {
 		this.renderTable();
 		this.renderRoute();
 	}
+
+	buildCheckbox(text = '') {
+		if (!text) {
+			return;
+		}
+
+		const checkboxeshtml = [
+			{
+				name: 'checkbox-scibble-circle',
+				html: `<label for="{id_placeholder}" class="checkbox-wrapper-60"><input type="checkbox" class="check" id="{id_placeholder}"/><label for="{id_placeholder}" class="label"><svg viewBox="0 0 65 65" height="30" width="30"><rect x="7" y="7" width="50" height="50" stroke="black" fill="none" /><g transform="translate(-23,-967.36216)" id="layer1-60"><path id="path4146" d="m 55,978 c -73,19 46,71 15,2 C 60,959 13,966 30,1007 c 12,30 61,13 46,-23" fill="none" stroke="red" stroke-width="3" class="path1" /></g></svg><span>{text_placeholder}</span></label></label>`
+			}, {
+				name: 'checkbox-scibble-scratch',
+				html: `<label for="{id_placeholder}" class="checkbox-wrapper-61"><input type="checkbox" class="check" id="{id_placeholder}"/><label for="{id_placeholder}" class="label"><svg width="45" height="45" viewbox="0 0 95 95"><rect x="30" y="20" width="50" height="50" stroke="black" fill="none" /><g transform="translate(0,-952.36222)"><path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 " stroke="red" stroke-width="3" fill="none" class="path1" /></g></svg><span>{text_placeholder}</span></label></label>`
+			}, {
+				name: 'checkbox-scibble-cross',
+				html: `<label for="{id_placeholder}" class="checkbox-wrapper-62"><input type="checkbox" class="check" id="{id_placeholder}"/><label for="{id_placeholder}" class="label"><svg width="43" height="43" viewbox="0 0 90 90"><rect x="30" y="20" width="50" height="50" stroke="black" fill="none" /><g transform="translate(0,-952.36218)"><path d="m 13,983 c 33,6 40,26 55,48 " stroke="red" stroke-width="3" class="path1" fill="none" /><path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="red" stroke-width="3" class="path1" fill="none" /></g></svg><span>{text_placeholder}</span></label></label>`
+			},
+
+		];
+
+		const uuid = uuidv4();
+
+		const ran = getRandomInt(3);
+
+		return checkboxeshtml[ran].html.replaceAll('{id_placeholder}', uuid).replaceAll('{text_placeholder}', text);
+
+	}
+
+
 }
 
 const app = new RouteApp();

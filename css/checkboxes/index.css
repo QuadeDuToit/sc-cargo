@@ -1,0 +1,35 @@
+ 
+  .checkbox-wrapper-60 input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+  }
+
+  .checkbox-wrapper-60 *,
+  .checkbox-wrapper-60 ::after,
+  .checkbox-wrapper-60 ::before {
+    box-sizing: border-box;
+  }
+
+  .checkbox-wrapper-60 {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+  .checkbox-wrapper-60 .check {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    opacity: 0;
+  }
+  .checkbox-wrapper-60 .label svg {
+    vertical-align: middle;
+  }
+  .checkbox-wrapper-60 .path1 {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    transition: .5s all;
+  }
+  .checkbox-wrapper-60 .check:checked + label svg g path {
+    stroke-dashoffset: 0;
+  }
+ 
