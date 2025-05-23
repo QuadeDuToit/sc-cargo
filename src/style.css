@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap");
+
+
+*,
+::before,
+::after {
+  font-family: "Jura", sans-serif;
+  
+  font-style: normal;
+  text-decoration: inherit;
+  font-weight: 400;
+  /* padding: 0;
+    margin: 0; */
+  box-sizing: border-box;
+}
+
+.unselectable {
+    user-select: none;
+}
+
+
+strong {
+  font-weight: 900;
+}
+
+u {
+  text-decoration: underline;
+}
+
+em {
+  font-style: italic;
+}
+
+code {
+  background: rgb(80, 80, 80);
+  color: white;
+  padding: 0 3px;
+  margin: 0 3px;
+  border-radius: 3px;
+}
+
+input[type=text],
+input[type=text]:focus,
+input[type=text]:-webkit-autofill,
+input[type=text]:-webkit-autofill:hover,
+input[type=text]:-webkit-autofill:focus {
+  border: unset;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  filter: none;
+  outline: none;
+}
+
+.no-wrap {
+  text-wrap: nowrap;
+}
+
+.clr-white {
+  color: white;
+}
+
+html {
+  background: rgb(29, 29, 29);
+  
+  /* margin: auto; */
+}
+
+.header {
+  background: #212121;
+}
+
+h1,
+h4 {
+  color: #ffff00c9;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.title {
+  padding-top: 0.7em;
+  padding-left: 0.7em;
+}
+
+.header-info {
+  max-width: 95%;
+  margin-left: 1.5em !important;
+}
+
+
+table {
+  font-family: "Jura", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+
+}
+
+.table-header {
+  font-weight: bold;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  color: white;
+}
+
+tr {
+  height: 10px;
+  line-height: 10px;
+  overflow: auto;
+
+}
+tr td {
+  height: 10px !important;
+  max-height: 10px;
+  overflow: hidden;
+}
+
+tr:nth-child(even) {
+  background-color: #17171796;
+  color: white;
+}
+
+.auth-bar-code {
+  font-family: "Libre Barcode 39 Text", cursive;
+  font-size: 25px;
+}
+
+.commands {
+  float: right;
+}
+
+.btn {
+  transform: translateY(25px);
+  z-index: 1;
+  overflow: hidden;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  position: relative;
+  padding: 8px 20px;
+  border-radius: 0px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: 0.2s ease;
+  font-weight: bold;
+  margin: 5px 0px;
+  font-family: "Jura", sans-serif;
+}
+
+
+
+.btn:hover {
+  color: black;
+  background: white;
+  transition: 0.2s ease;
+}
+
+.list {
+  list-style: none;
+}
+
+.list.list-bulleted,
+.list.list-numbered {
+  list-style: inherit;
+}
+
+.list.list-bulleted>li,
+.list.list-numbered>li {
+  margin-left: 20px;
+}
+
+.list.list-numbered {
+  list-style: decimal;
+}
+
+.list.list-inline>li {
+  display: inline;
+}

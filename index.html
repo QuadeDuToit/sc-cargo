@@ -1,53 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-	<meta charset="UTF-8" />
-	<title>Dynamic Mission Planner</title>
-	<link rel="stylesheet" href="main.css">
-	<style>
-		table,
-		th,
-		td {
-			border: 1px solid #ccc;
-			border-collapse: collapse;
-			padding: 5px;
-		}
-
-		input {
-			width: 100%;
-			box-sizing: border-box;
-		}
-	</style>
-</head>
-
-<body>
-
-	<h4>Mission Route Planner</h4>
-	<div>
-		<input type="button" value="Clear all" class="btn" onclick="app.clearAll()" />
-	</div>
-	<div style="margin-top: 50px;">
-		<table>
-			<thead>
-				<tr class="table-header">
-					<th>From</th>
-					<th>To</th>
-					<th>Item</th>
-					<th>Amount</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody id="missionTableBody"></tbody>
-		</table>
-		<div class="body">
-			<section>
-				<ul id="routeOutput"></ul>
-				<div id="output"></div>
-			</section>
-		</div>
-	</div>
-	<script src="planner.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue + TS</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
